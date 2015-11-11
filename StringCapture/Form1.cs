@@ -62,8 +62,8 @@ namespace StringCapture
             foreach (string file in files)
             {
                 // Hard coded filter
-                if (Path.GetExtension(file) != ".cs")
-                    continue;
+                //if (Path.GetExtension(file) != ".cs")
+                //    continue;
 
                 UpdateListBox(file);
 
@@ -73,8 +73,8 @@ namespace StringCapture
                     var text = fin.ReadToEnd();
 
                     // Only search for strings if the word "SqlCommand" appears somewhere in the file
-                    if (!text.Contains("SqlCommand"))
-                        continue;
+                    //if (!text.Contains("SqlCommand"))
+                    //    continue;
                     
                     // Slow part, could use some optimizing
                     bool start = false;
@@ -92,11 +92,12 @@ namespace StringCapture
                             {
                                 string substring = text.Substring(startIndex, i - startIndex);
                                 if (!string.IsNullOrWhiteSpace(substring) &&
-                                    substring.Contains("_") ||
-                                    substring.ToLower().Contains("select") ||
-                                    substring.ToLower().Contains("insert") ||
-                                    substring.ToLower().Contains("update") ||
-                                    substring.ToLower().Contains("delete"))
+                                    //substring.Contains("_") ||
+                                    //substring.ToLower().Contains("select") ||
+                                    //substring.ToLower().Contains("insert") ||
+                                    //substring.ToLower().Contains("update") ||
+                                    //substring.ToLower().Contains("delete"))
+                                    substring.ToLower().Contains("ipad"))
                                 {
                                     string[] splitString = substring.Split('.');
                                     StringBuilder sb = new StringBuilder();
